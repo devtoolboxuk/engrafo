@@ -1,0 +1,41 @@
+{
+  "name": "devtoolbox/engrafo",
+  "description": "File Library",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "JSON Reader",
+    "JSON Writer",
+    "CSV Reader",
+    "CSV Writer",
+    "Xml Generator",
+    "Xml Reader",
+    "Xml Formatter"
+  ],
+  "autoload": {
+    "psr-4": {
+      "": "library/",
+      "devtoolbox\\engrafo\\": "library/"
+    },
+    "classmap": [
+      "library"
+    ]
+  },
+  "authors": [
+    {
+      "name": "Rob Wilson",
+      "email": "rob@dev-toolbox.co.uk"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.16",
+    "ext-xmlwriter": ">=0.1"
+  },
+  "minimum-stability": "dev",
+  "scripts": {
+    "test": "./vendor/bin/phpunit"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  }
+}
