@@ -45,6 +45,11 @@ class JsonService extends AbstractFileService implements FileInterface
         $this->writeFile($footer);
     }
 
+    public function setCdata($value)
+    {
+        return $value;
+    }
+
     public function getWriteService()
     {
     }

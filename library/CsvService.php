@@ -29,6 +29,11 @@ class CsvService extends AbstractFileService implements FileInterface
         return $data;
     }
 
+    public function setCdata($value)
+    {
+        return $value;
+    }
+
     public function closeFile()
     {
         return $this->closeLocalFile();

@@ -8,5 +8,7 @@ interface FileInterface
 
     public function writeData($tags, $element_name);
 
+    public function setCdata($value);
+
     public function closeFile();
 }
