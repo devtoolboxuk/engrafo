@@ -1,8 +1,8 @@
 <?php
 
-namespace devtoolbox\engrafo;
+namespace devtoolboxuk\engrafo;
 
-use devtoolbox\engrafo\xmlbuilder\XmlBuilder;
+use devtoolboxuk\engrafo\xmlbuilder\XmlBuilder;
 
 class XmlService extends AbstractFileService implements FileInterface
 {

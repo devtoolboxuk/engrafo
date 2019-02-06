@@ -1,6 +1,6 @@
 <?php
 
-namespace devtoolbox\engrafo;
+namespace devtoolboxuk\engrafo;
 
 abstract class AbstractFileService
 {

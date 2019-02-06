@@ -1,6 +1,6 @@
 <?php
 
-namespace devtoolbox\engrafo\xmlbuilder;
+namespace devtoolboxuk\engrafo\xmlbuilder;
 
 use UnexpectedValueException;
 use XMLWriter;

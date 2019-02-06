@@ -2,6 +2,8 @@
 Basic file read / write service for CSV, JSON and XML. 
 Write Service writes a file from an Array, and the read service reads a file to an Array
 
+[![Total Downloads](https://img.shields.io/packagist/dt/devtoolboxuk/engrafo.svg?style=flat-square)](https://packagist.org/packages/devtoolboxuk/engrafo)
+[![License](https://img.shields.io/packagist/l/devtoolboxuk/engrafo.svg?style=flat-square)](https://packagist.org/packages/devtoolboxuk/engrafo)
 
 ## Table of Contents
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace devtoolbox\engrafo\xmlbuilder;
+namespace devtoolboxuk\engrafo\xmlbuilder;
 
 class XmlBuilder implements XmlInterface
 {

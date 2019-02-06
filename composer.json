@@ -1,5 +1,5 @@
 {
-  "name": "devtoolbox/engrafo",
+  "name": "devtoolboxuk/engrafo",
   "description": "File Library",
   "type": "library",
   "license": "MIT",
@@ -15,7 +15,7 @@
   "autoload": {
     "psr-4": {
       "": "library/",
-      "devtoolbox\\engrafo\\": "library/"
+      "devtoolboxuk\\engrafo\\": "library/"
     },
     "classmap": [
       "library"
