@@ -24,8 +24,33 @@ class JsonService extends AbstractFileService implements FileInterface
         }
     }
 
+    function defineTags($arr)
+    {
+        $arr2 = [];
+        foreach ($arr as $key => $value) {
+
+            if (is_array($value)) {
+
+                if ($key === '@a' || $key === '@attributes') {
+                    $arr2 = $this->defineTags($value);
+                } else {
+                    $arr2[$key] = $this->defineTags($value);
+                }
+            } else {
+                if ($key === '@v' || $key === '@value') {
+                    return $value;
+                }
+                $arr2[$key] = $value;
+            }
+        }
+        return $arr2;
+    }
+
+
     private function formatData($data, $pretty = false)
     {
+        $data = $this->defineTags($data);
+
         if ($pretty) {
             $data = json_encode($data, JSON_PRETTY_PRINT);
         } else {
