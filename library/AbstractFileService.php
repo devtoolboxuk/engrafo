@@ -57,7 +57,7 @@ abstract class AbstractFileService
         fclose($this->localFileHandle);
     }
 
-    protected function setSeparator($separator)
+    public function setSeparator($separator)
     {
         $this->separator = $separator;
     }
