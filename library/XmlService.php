@@ -19,7 +19,12 @@ class XmlService extends AbstractFileService implements FileInterface
         $this->readXMLService = $this->xmlBuildService->readXMLService();
     }
 
-    public function readXmlFile($file, $name)
+    public function readXml($data)
+    {
+        return $this->readXMLService->convertXML($data);
+    }
+
+    public function readXmlFile($file)
     {
         $this->readFileChunked($file);
 
@@ -27,7 +32,7 @@ class XmlService extends AbstractFileService implements FileInterface
             throw new \Exception(sprintf("Unable to read '%s'.", $file));
         }
 
-        return $this->readXMLService->convertXML($this->readFileData, $name);
+        return $this->readXMLService->convertXML($this->readFileData);
     }
 
     private function readFileChunked($filename)

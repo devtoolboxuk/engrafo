@@ -17,8 +17,8 @@ class XmlReader
         $iterator = new SimpleXmlIterator($xmlString);
 
         $result = [];
-        foreach ($iterator as $iterator) {
-            $result[] = $this->getArrayFromXml($iterator);
+        foreach ($iterator as $key => $iterator) {
+            $result[$key][] = $this->getArrayFromXml($iterator);
         }
         return $result;
     }
