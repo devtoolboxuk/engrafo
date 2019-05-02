@@ -24,6 +24,11 @@ class XmlService extends AbstractFileService implements FileInterface
         return $this->readXMLService->convertXML($data);
     }
 
+    public function readSimpleXml($data)
+    {
+        return $this->readXMLService->convertSimpleXML($data);
+    }
+
     public function readXmlFile($file)
     {
         $this->readFileChunked($file);
