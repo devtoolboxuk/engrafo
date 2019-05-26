@@ -63,7 +63,7 @@ class TextAdapter extends AbstractAdapter implements AdapterInterface
         $this->readFileChunked($file);
         $csvData = [];
 
-        foreach (explode($this->newLine, $this->readFileData) as $data) {
+        foreach (explode(PHP_EOL, $this->readFileData) as $data) {
             if ($data != '') {
                 $csvData[] = $data;
             }
