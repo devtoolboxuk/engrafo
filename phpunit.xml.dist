@@ -14,7 +14,7 @@
 
     <testsuites>
         <testsuite name="engrafo">
-            <directory prefix="test-csv" suffix=".php">./tests/</directory>
+            <directory prefix="test-" suffix=".php">./tests/</directory>
         </testsuite>
     </testsuites>
 </phpunit>

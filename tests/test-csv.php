@@ -51,7 +51,6 @@ class CsvTest extends TestCase
         $csvService = $engrafoService->getAdapter();
 
         $fileData = $csvService->readFile();
-        print_r($fileData);
     }
 
 }

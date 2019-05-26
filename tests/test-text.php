@@ -4,9 +4,8 @@ namespace devtoolboxuk\engrafo;
 
 use PHPUnit\Framework\TestCase;
 
-class XmlTest extends TestCase
+class TextTest extends TestCase
 {
-
     private $fileData;
 
     function __construct($name = null, array $data = [], $dataName = '')
@@ -21,35 +20,37 @@ class XmlTest extends TestCase
         return include __DIR__ . '/filedata.php';
     }
 
-
-    public function testWriteXml()
+    function testWriteTxt()
     {
         $options = [
-            'adapter' => 'xml',
+            'adapter' => 'text',
             'rootName' => 'products',
-            'fileName' => 'basic.xml',
+            'fileName' => 'basic.txt',
             'path' => __DIR__ . '/',
         ];
 
         $engrafoService = new EngrafoService($options);
-        $xmlService = $engrafoService->getAdapter();
+        $txtService = $engrafoService->getAdapter();
 
-        $xmlService->openFile();
-        $data = $xmlService->writeData($this->fileData, 'product');
-        $xmlService->writeFile($data);
-        $data = $xmlService->writeData($this->fileData, 'product');
-        $xmlService->writeFile($data);
-        $xmlService->closeFile();
+        $txtService->openFile();
 
-        $this->readSimpleXml($options);
+        $data = $txtService->writeData($this->fileData);
+        $txtService->writeFile($data);
+
+        $data = $txtService->writeData($this->fileData);
+        $txtService->writeFile($data);
+
+        $txtService->closeFile();
+
+        $this->readTxt($options);
     }
 
-    function readSimpleXml($options)
+    private function readTxt($options)
     {
-
         $engrafoService = new EngrafoService($options);
-        $xmlService = $engrafoService->getAdapter();
-        $fileData = $xmlService->readXmlFile();
+        $txtService = $engrafoService->getAdapter();
+
+        $fileData = $txtService->readFile();
     }
 
 }

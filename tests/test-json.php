@@ -52,7 +52,6 @@ class JsonTest extends TestCase
         $jsonService = $engrafoService->getAdapter();
 
         $fileData =  $jsonService->readFile();
-        print_r($fileData);
     }
 
 }
