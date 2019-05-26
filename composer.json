@@ -29,7 +29,9 @@
   ],
   "require": {
     "php": ">=5.4.16",
-    "ext-xmlwriter": ">=0.1"
+    "ext-xmlwriter": ">=0.1",
+    "devtoolboxuk/utilitybundle": "~1.0.9",
+    "league/csv": "^7.0"
   },
   "minimum-stability": "dev",
   "scripts": {
