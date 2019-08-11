@@ -49,7 +49,18 @@ class XmlTest extends TestCase
 
         $engrafoService = new EngrafoService($options);
         $xmlService = $engrafoService->getAdapter();
+        $this->assertFileExists($options['path'].$options['fileName']);
         $fileData = $xmlService->readXmlFile();
+
+        $xmlService->deleteFileIfExists($options['path'].$options['fileName']);
+
+        $this->assertArrayHasKey('product',$fileData);
+        $this->assertEquals(123,$fileData['product'][0]['id']);
+        $this->assertArrayHasKey('price',$fileData['product'][0]);
+        $this->assertEquals(123,$fileData['product'][1]['id']);
+        $this->assertArrayHasKey('price',$fileData['product'][1]);
+
+        $this->assertFileNotExists($options['path'].$options['fileName']);
     }
 
 }

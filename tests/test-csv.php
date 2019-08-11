@@ -49,8 +49,18 @@ class CsvTest extends TestCase
     {
         $engrafoService = new EngrafoService($options);
         $csvService = $engrafoService->getAdapter();
-
+        $this->assertFileExists($options['path'] . $options['fileName']);
         $fileData = $csvService->readFile();
+        $csvService->deleteFileIfExists($options['path'] . $options['fileName']);
+
+        $this->assertEquals(123, $fileData[0][0]);
+        $this->assertEquals('Y', $fileData[0][1]);
+        $this->assertEquals('test', $fileData[0][2]);
+
+        $this->assertEquals(123, $fileData[1][0]);
+        $this->assertEquals('Y', $fileData[1][1]);
+        $this->assertEquals('test', $fileData[1][2]);
+        $this->assertFileNotExists($options['path'] . $options['fileName']);
     }
 
 }

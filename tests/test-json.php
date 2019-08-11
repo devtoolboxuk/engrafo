@@ -50,8 +50,15 @@ class JsonTest extends TestCase
     {
         $engrafoService = new EngrafoService($options);
         $jsonService = $engrafoService->getAdapter();
-
+        $this->assertFileExists($options['path'].$options['fileName']);
         $fileData =  $jsonService->readFile();
+        $jsonService->deleteFileIfExists($options['path'].$options['fileName']);
+
+        $this->assertEquals(123,$fileData[0]['id']);
+        $this->assertArrayHasKey('price',$fileData[0]);
+        $this->assertEquals(123,$fileData[1]['id']);
+        $this->assertArrayHasKey('price',$fileData[1]);
+        $this->assertFileNotExists($options['path'].$options['fileName']);
     }
 
 }

@@ -65,7 +65,8 @@ class TextAdapter extends AbstractAdapter implements AdapterInterface
 
         foreach (explode(PHP_EOL, $this->readFileData) as $data) {
             if ($data != '') {
-                $csvData[] = $data;
+                //Remove control characters
+                $csvData[] = trim(preg_replace( '/[[:cntrl:]]/', '',$data));
             }
         }
 
