@@ -16,7 +16,11 @@ abstract class AbstractAdapter implements AdapterInterface
 
     protected $readFileData;
 
-    protected $chunkSize = '1024';
+
+    /**
+     * @var int|mixed
+     */
+    protected $chunkSize = 1024;
 
     protected $utilityService;
 
