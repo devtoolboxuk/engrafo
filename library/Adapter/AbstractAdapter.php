@@ -16,12 +16,15 @@ abstract class AbstractAdapter implements AdapterInterface
 
     protected $readFileData;
 
+    protected $chunkSize = '1024';
+
     protected $utilityService;
 
     public function __construct($options = [])
     {
         $this->rootName = isset($options['rootName']) ? $options['rootName'] : null;
         $this->fileName = isset($options['fileName']) ? $options['fileName'] : null;
+        $this->chunkSize = isset($options['chunkSize']) ? $options['chunkSize'] : $this->chunkSize;
         $debug = isset($options['debug']) ? $options['debug'] : null;
 
         switch (strtoupper($debug)) {
@@ -80,7 +83,6 @@ abstract class AbstractAdapter implements AdapterInterface
             $filename = $this->path . $this->fileName;
         }
 
-        $chunkSize = 512; // bytes per chunk
         $handle = fopen($filename, "rb");
 
         if ($handle === false) {
@@ -88,7 +90,7 @@ abstract class AbstractAdapter implements AdapterInterface
         }
         $this->readFileData = '';
         while (!feof($handle)) {
-            $this->readFileData .= fread($handle, $chunkSize);
+            $this->readFileData .= fread($handle, $this->chunkSize);
             ob_flush();
             flush();
         }
