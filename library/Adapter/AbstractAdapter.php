@@ -10,6 +10,8 @@ abstract class AbstractAdapter implements AdapterInterface
 
     protected $rootName;
     protected $fileName;
+    protected $encoding;
+    protected $version;
     protected $path;
     protected $debug = null;
     protected $separator;
@@ -28,6 +30,8 @@ abstract class AbstractAdapter implements AdapterInterface
     {
         $this->rootName = isset($options['rootName']) ? $options['rootName'] : null;
         $this->fileName = isset($options['fileName']) ? $options['fileName'] : null;
+        $this->version = isset($options['version']) ? $options['version'] : $this->version;
+        $this->encoding = isset($options['encoding']) ? $options['encoding'] : $this->encoding;
         $this->chunkSize = isset($options['chunkSize']) ? $options['chunkSize'] : $this->chunkSize;
         $debug = isset($options['debug']) ? $options['debug'] : null;
 

@@ -30,6 +30,9 @@ class XmlAdapter extends AbstractAdapter implements AdapterInterface
         $this->openLocalFile($this->path . $this->fileName);
 
         $this->writeXMLService->setRootName($this->rootName);
+        $this->writeXMLService->setEncoding($this->encoding);
+        $this->writeXMLService->setVersion($this->version);
+
         if (!empty($tags)) {
             $data = $this->writeXMLService->createDoc($tags);
         } else {
