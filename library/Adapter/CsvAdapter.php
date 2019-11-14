@@ -20,6 +20,15 @@ class CsvAdapter extends AbstractAdapter implements AdapterInterface
         $this->csvBuildService->setNewline($this->newLine);
     }
 
+    /**
+     * @param $newLine
+     */
+    public function setNewLine($newLine)
+    {
+        $this->newLine = $newLine;
+        $this->csvBuildService->setNewline($newLine);
+    }
+
     public function openFile()
     {
         $this->openLocalFile($this->path . $this->fileName);
