@@ -99,8 +99,10 @@ abstract class AbstractAdapter implements AdapterInterface
         $this->readFileData = '';
         while (!feof($handle)) {
             $this->readFileData .= fread($handle, $this->chunkSize);
-            ob_flush();
-            flush();
+            if( ob_get_level() > 0 ) {
+                @ob_flush();
+            }
+            @flush();
         }
 
         fclose($handle);
