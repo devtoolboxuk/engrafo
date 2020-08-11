@@ -5,6 +5,8 @@ namespace devtoolboxuk\engrafo\Adapter;
 class JsonAdapter extends AbstractAdapter implements AdapterInterface
 {
 
+    private $removeComma = false;
+
     public function __construct($options)
     {
         parent::__construct($options);
@@ -101,11 +103,32 @@ class JsonAdapter extends AbstractAdapter implements AdapterInterface
     {
         $this->readFileChunked($file);
 
+        if ($this->removeComma) {
+            $this->readFileData = $this->removeTrailingCommas($this->readFileData);
+        }
+
         if ($this->isJson()) {
             return json_decode(json_encode(json_decode($this->readFileData)), true);
         }
 
         return null;
+    }
+
+    private function removeTrailingCommas($json)
+    {
+        $json = preg_replace('/,\s*([\]}])/m', '$1', $json);
+        return $json;
+    }
+
+
+    public function setRemoveCommas()
+    {
+        $this->removeComma = true;
+    }
+
+    public function unsetRemoveCommas()
+    {
+        $this->removeComma = false;
     }
 
     private function isJson()
