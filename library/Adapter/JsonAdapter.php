@@ -13,10 +13,10 @@ class JsonAdapter extends AbstractAdapter implements AdapterInterface
         $this->setSeparator(",");
     }
 
-    public function openFile()
+    public function openFile($header = '[')
     {
         $this->openLocalFile($this->path . $this->fileName);
-        $this->setHeader('[');
+        $this->setHeader($header);
     }
 
     public function setHeader($header)
@@ -83,9 +83,9 @@ class JsonAdapter extends AbstractAdapter implements AdapterInterface
         return $this->writeFile($data . $this->separator);
     }
 
-    public function closeFile()
+    public function closeFile($footer = ']')
     {
-        $this->setFooter(']');
+        $this->setFooter($footer);
         return $this->closeLocalFile();
     }
 
